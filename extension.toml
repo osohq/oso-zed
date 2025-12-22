@@ -1,0 +1,11 @@
+id = "polar"
+name = "Polar"
+version = "0.0.1"
+schema_version = 1
+authors = ["Aru Sahni <aru@osohq.com>"]
+description = "Polar authorization language support for Oso Cloud"
+repository = "https://github.com/osohq/oso-zed"
+
+[grammars.polar]
+repository = "file:///home/aru/code/tree-sitter-polar"
+rev = "351e99d6693d09cdd2b974fa5f6326c14fdc8471"
