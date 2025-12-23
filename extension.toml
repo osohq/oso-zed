@@ -9,3 +9,7 @@ repository = "https://github.com/osohq/oso-zed"
 [grammars.polar]
 repository = "file:///home/aru/code/tree-sitter-polar"
 rev = "351e99d6693d09cdd2b974fa5f6326c14fdc8471"
+
+[language_servers.polar]
+name = "Polar"
+languages = ["Polar"]
