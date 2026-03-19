@@ -33,6 +33,9 @@
 
 (operator) @operator
 
+(fact_declaration
+  name: (namespaced_identifier) @function)
+
 (rule_functor
   name: (namespaced_identifier) @function)
 
@@ -69,7 +72,3 @@
 
 (test_setup
   "setup" @module)
-
-(test_setup
-  (test_fact
-    name: (namespaced_identifier) @function))
