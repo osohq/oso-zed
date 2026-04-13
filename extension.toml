@@ -13,3 +13,19 @@ rev = "00d3a2042c5507df68820baa2650a4a7769489d5"
 [language_servers.polar]
 name = "Polar"
 languages = ["Polar"]
+
+[[capabilities]]
+kind = "process:exec"
+command = "oso-cloud"
+args = ["**"]
+
+[[capabilities]]
+kind = "process:exec"
+command = "oso-cloud-local"
+args = ["**"]
+
+[[capabilities]]
+kind = "download_file"
+# This is the host for the Oso Cloud binary installer (see https://cloud.osohq.com/install.sh)
+host = "d3i4cc4dqewpo9.cloudfront.net"
+path = ["**"]
