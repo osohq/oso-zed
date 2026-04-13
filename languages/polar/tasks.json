@@ -1,0 +1,12 @@
+[
+  {
+    "label": "Run all Polar tests in current file",
+    "command": "read_dotenv_var() { key=\"$1\"; env_file=\"$ZED_WORKTREE_ROOT/.env\"; [ -f \"$env_file\" ] || return 0; sed -nE \"s/^[[:space:]]*${key}[[:space:]]*=[[:space:]]*//p\" \"$env_file\" | sed -n '1p' | sed -E 's/[[:space:]]+$//' | sed -E 's/^\"(.*)\"$/\\1/' | sed -E \"s/^'(.*)'$/\\1/\" | tr -d '\\r'; }; if [ -z \"$OSO_AUTH\" ]; then OSO_AUTH=$(read_dotenv_var OSO_AUTH); [ -n \"$OSO_AUTH\" ] && export OSO_AUTH; fi; if [ -z \"$OSO_URL\" ]; then OSO_URL=$(read_dotenv_var OSO_URL); [ -n \"$OSO_URL\" ] && export OSO_URL; fi; if [ -z \"$OSO_AUTH\" ]; then echo \"OSO_AUTH is not set. Set it in your shell environment or add OSO_AUTH=... to $ZED_WORKTREE_ROOT/.env\"; exit 1; fi; if command -v oso-cloud >/dev/null 2>&1; then oso-cloud test \"$ZED_FILE\"; elif command -v oso-cloud-local >/dev/null 2>&1; then oso-cloud-local test \"$ZED_FILE\"; else echo \"Could not find oso-cloud or oso-cloud-local in PATH\"; exit 127; fi",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "save": "current",
+    "reveal": "always",
+    "show_summary": false,
+    "show_command": false,
+    "tags": ["polar-test"]
+  }
+]
