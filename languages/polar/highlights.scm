@@ -1,5 +1,6 @@
 ; highlights.scm
 [
+  "assert"
   "cut"
   "or"
   "debug"
@@ -7,6 +8,7 @@
   "in"
   "forall"
   "if"
+  "iff"
   "and"
   "of"
   "not"
@@ -72,3 +74,8 @@
 
 (test_setup
   "setup" @module)
+
+(assertion
+    parameters: (_)*
+    (specializer
+      type: (namespaced_identifier) @type))

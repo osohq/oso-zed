@@ -8,7 +8,7 @@ repository = "https://github.com/osohq/oso-zed"
 
 [grammars.polar]
 repository = "https://github.com/osohq/tree-sitter-polar"
-rev = "00d3a2042c5507df68820baa2650a4a7769489d5"
+rev = "30ad5d860fdca230661f3112aa4dbd159b39a1ea"
 
 [language_servers.polar]
 name = "Polar"
