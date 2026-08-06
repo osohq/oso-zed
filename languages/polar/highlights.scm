@@ -1,24 +1,28 @@
 ; highlights.scm
 [
+  "and"
   "assert"
-  "cut"
-  "or"
-  "debug"
-  "print"
-  "in"
-  "forall"
+  "assert_not"
+  "declare"
+  "extends"
+  "fixture"
+  "global"
   "if"
   "iff"
-  "and"
-  "of"
-  "not"
+  "in"
+  "matches!"
   "matches"
-  "type"
+  "not"
   "on"
-  "global"
+  "or"
+  "setup"
+  "test"
+  "type"
 ] @keyword
 
-(identifier) @variable
+(rule_flags) @attribute
+
+(current_unix_time) @constant.builtin
 
 (namespaced_identifier) @variable
 
@@ -33,29 +37,33 @@
 
 (resource_type) @constructor
 
-(operator) @operator
+(comparison_operator) @operator
+
+(assignment_operator) @operator
+
+(unify_expression
+  "=" @operator)
 
 (fact_declaration
   name: (namespaced_identifier) @function)
 
-(rule_functor
+(declare_statement
   name: (namespaced_identifier) @function)
 
 (rule_functor
-  parameters: (_)*
-  (specializer
-    name: (namespaced_identifier) @variable.parameter))
+  name: (namespaced_identifier) @function)
 
-(rule_functor
-  parameters: (_)*
-  (specializer
-    type: (namespaced_identifier) @type))
-
-(rule_expression_functor
+(call
   name: (namespaced_identifier) @function.call)
 
-(rule_expression_functor
-  parameters: (identifier) @variable)
+(specializer
+  name: (namespaced_identifier) @variable.parameter)
+
+(specializer
+  type: (namespaced_identifier) @type)
+
+(matches_expression
+  type: (namespaced_identifier) @type)
 
 (dict_field
   value: (namespaced_identifier) @type)
@@ -75,7 +83,10 @@
 (test_setup
   "setup" @module)
 
-(assertion
-    parameters: (_)*
-    (specializer
-      type: (namespaced_identifier) @type))
+(test_fixture
+  keyword: "test" @module
+  kind: "fixture" @module
+  name: (namespaced_identifier) @label)
+
+(fixture_reference
+  name: (namespaced_identifier) @label)
